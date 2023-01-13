@@ -8,4 +8,11 @@ npm install express
 02-websocket  
 npm install express  
 npm install ws  
+  
+03-websocket-individual  
+npm install express  
+npm install ws  
+npm install uuid  
+  
+  
 

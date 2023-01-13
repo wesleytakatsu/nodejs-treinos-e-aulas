@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Primeiro Ola, Mundo em NodeJS</title>
+</head>
+<body>
+    <h1>Olá, mundo!</h1>
+
+
+    <!-- HTML -->
+    <div id="chat">
+        <div id="messages"></div>
+        <input id="message-input" type="text">
+        <button id="send-button">Send</button>
+    </div>
+
+    <script>
+        // JavaScript
+        const socket = new WebSocket('ws://127.0.0.1:8085');
+        const messages = document.getElementById('messages');
+        const messageInput = document.getElementById('message-input');
+        const sendButton = document.getElementById('send-button');
+        let clientId;
+
+        // Adiciona um listener para mensagens recebidas do servidor
+        socket.onmessage = event => {
+            const message = event.data;
+            try {
+                const data = JSON.parse(message);
+                if(data.id && data.text){
+                    if(!clientId){
+                        clientId = data.id;
+                    }
+                    const messageDiv = document.createElement('div');
+                    console.log('Seu id é:'+ data.id);
+                    //messageDiv.innerHTML = `${data.id}: ${data.text}`;
+                    messageDiv.innerHTML = `${data.text}`;
+                    messages.appendChild(messageDiv);
+                }
+            } catch (error) {
+                console.error('Invalid message format');
+            }
+        };
+
+        sendButton.addEventListener('click', () => {
+            const message = messageInput.value;
+            socket.send(JSON.stringify({id: clientId, text: message}));
+            messageInput.value = '';
+        });
+
+
+    </script>
+
+<pre>
+Para esse projeto eu instalei o express e o ws:
+npm install express
+npm install ws
+</pre>
+
+
+</body>
+</html>

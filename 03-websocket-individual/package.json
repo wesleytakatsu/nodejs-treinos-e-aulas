@@ -1,0 +1,22 @@
+{
+  "name": "teino-de-websocket",
+  "version": "1.0.0",
+  "description": "Criando uma conexão Websocket",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Wesley Sieiro Takatsu de Araujo",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "uuid": "^9.0.0",
+    "ws": "^7.5.9"
+  },
+  "keywords": [
+    "websockets",
+    "chat",
+    "javascript"
+  ]
+}
