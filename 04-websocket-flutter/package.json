@@ -1,0 +1,16 @@
+{
+  "name": "04-websocket-flutter",
+  "version": "1.0.0",
+  "description": "Criação de um WebSocket para se conectar com um app Flutter",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Wesley Sieiro Takatsu de Araujo",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "uuid": "^9.0.0",
+    "ws": "^7.5.9"
+  }
+}
